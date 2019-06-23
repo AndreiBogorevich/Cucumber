@@ -5,7 +5,7 @@ import java.util.Properties;
 
 public class ConfigFileReader {
 
-	private String sConfigFilePath = (System.getProperty("user.dir") + "\\src\\properties\\config.properties");
+	private String sConfigFilePath = (System.getProperty("user.dir") + "/src/test/resources/properties/config.properties");
 	private Properties properties;
 	
 	public ConfigFileReader() {

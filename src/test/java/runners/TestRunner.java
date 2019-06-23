@@ -5,10 +5,10 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src\\test\\resources\\Feature", 
-				glue = { "src\\test\\java\\stepDefinition" }, 
+@CucumberOptions(features = "src/test/resources/Feature", 
+				glue = { "stepDefinition" }, 
 				monochrome = true, 
-				dryRun = true)
+				dryRun = false)
 public class TestRunner {
 
 }
