@@ -8,33 +8,32 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class MainPageSteps {
-	
+
 	TestContext testContext = null;
-	MainPage page = null;
-	
-	public MainPageSteps(TestContext context){
+	MainPage mainPage = null;
+
+	public MainPageSteps(TestContext context) {
 		testContext = context;
-		page = testContext.getPageObjectManager().getMainPage();
+		mainPage = testContext.getPageObjectManager().getMainPage();
 	}
-	
+
 	@Then("^User is logged out and sign in option is available$")
-	public void message_displayed_LogOut_Successfully()  {
+	public void user_is_logged_out_and_sign_in_option_is_available() {
 
-		Assert.assertTrue(testContext.isElementVisible(page.btnSignIn));
+		Assert.assertTrue(testContext.isElementVisible(mainPage.btnSignIn));
 	}
-
 
 	@Then("^User is logged in and sign out option is available$")
-	public void login_successful() {
+	public void user_is_logged_in_and_sign_out_option_is_available() {
 
-		Assert.assertTrue(testContext.isElementVisible(page.btnSignOut));
+		Assert.assertTrue(testContext.isElementVisible(mainPage.btnSignOut));
 	}
 
 	@When("^User logs out from the application$")
-	public void user_LogOut_from_the_Application() {
+	public void user_logs_out_from_the_application() {
 
-		page.signOut();
+		mainPage.signOut();
 
 	}
-	
+
 }

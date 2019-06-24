@@ -53,10 +53,16 @@ public class WebDriverManager {
 						"Failed to initialise webdriver for " + browserName);
 			}
 
-		} else{
+		} else {
 			return driver;
 		}
-
+	}
+	
+	public void setBrowserSize(){
+		if (FileReaderManager.getInstance().getConfigFileReader()
+				.getMaximizeBrowser()) {
+			driver.manage().window().maximize();
+		}
 	}
 
 	@SuppressWarnings("deprecation")

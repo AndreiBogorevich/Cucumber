@@ -15,7 +15,7 @@ public class LoginPageSteps {
 	}
 	
 	@When("^User enters email as \"(.*)\" and password as \"(.*)\"$")
-	public void user_enters_username(String sEmail, String sPassword) {
+	public void user_enters_email_as_sEmail_and_password_as_sPassword(String sEmail, String sPassword) {
 
 		loginPage.logIn(sEmail, sPassword);
 	}

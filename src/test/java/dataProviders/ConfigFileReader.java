@@ -86,15 +86,15 @@ public class ConfigFileReader {
 	public boolean getUseFirefoxBinary(){
 		String sFlag = properties.getProperty("useFirefoxBinary");
 		if (sFlag != null){
-			if (sFlag.equalsIgnoreCase("y")){
+			if (sFlag.equalsIgnoreCase("y") || sFlag.equalsIgnoreCase("true")){
 				return true;
 			} // flag is not null and set to yes 
 			else{
-				return true;
+				return false;
 			} // flag is not null and NOT set to yes
 		}
 		else{
-			throw new RuntimeException("Use Firefox Binary flag is not specified in the configuration file.");
+			throw new RuntimeException("Use Firefox Binary flag is missing in the configuration file.");
 		} // flag is not setm i.e. is null
 	}
 
@@ -106,6 +106,21 @@ public class ConfigFileReader {
 		else{
 			throw new RuntimeException("Firefox Binary path is not specified in the configuration file.");
 		}
+	}
+	
+	public boolean getMaximizeBrowser(){
+		String sMaximize = properties.getProperty("maximizeBrowser");
+		if (sMaximize != null){
+			if (sMaximize.equalsIgnoreCase("y") || sMaximize.equalsIgnoreCase("true")){
+				return true;
+			} // flag is not null and set to yes 
+			else{
+				return false;
+			} // flag is not null and NOT set to yes
+		}
+		else{
+			throw new RuntimeException("Use MaximizeBrowser flag is missing in the configuration file.");
+		} // flag is not setm i.e. is null
 	}
 	
 }
