@@ -123,4 +123,14 @@ public class ConfigFileReader {
 		} // flag is not setm i.e. is null
 	}
 	
+	public String getTestDataPath() {
+		String sTestDataPath = properties.getProperty("testDataPath");
+		if (sTestDataPath != null){
+			return sTestDataPath;
+		}
+		else{
+			throw new RuntimeException("Test Data path is not specified in the configuration file.");
+		}
+	}
+	
 }
