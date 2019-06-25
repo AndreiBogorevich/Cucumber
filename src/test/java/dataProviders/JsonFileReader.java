@@ -1,6 +1,5 @@
 package dataProviders;
 
-import gherkin.deps.com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,8 +8,10 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import testDataTypes.Login;
 import managers.FileReaderManager;
+import testDataTypes.Login;
+
+import com.google.gson.Gson;
 
 public class JsonFileReader {
 
