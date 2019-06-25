@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utils.Wait;
 import managers.FileReaderManager;
 import managers.PageObjectManager;
 import managers.WebDriverManager;
@@ -13,10 +14,14 @@ public class TestContext {
 
 	private WebDriverManager webDriverManager;
 	private PageObjectManager pageObjectManager;
+	public ScenarioContext scenarioContext;
+	public static Wait wait;
 
 	public TestContext() {
 		webDriverManager = new WebDriverManager();
 		pageObjectManager = new PageObjectManager(webDriverManager.getDriver());
+		scenarioContext = new ScenarioContext();
+		wait = new Wait();
 	}
 
 	public WebDriverManager getWebDriverManager() {
@@ -27,6 +32,9 @@ public class TestContext {
 		return pageObjectManager;
 	}
 
+	/**********************************************************/
+							/* KEYWORDS */
+	
 	public boolean isElementPresent(By by) {
 
 		WebDriverWait wait = new WebDriverWait(webDriverManager.getDriver(),

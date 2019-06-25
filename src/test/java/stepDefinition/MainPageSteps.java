@@ -19,13 +19,15 @@ public class MainPageSteps {
 
 	@Then("^User is logged out and sign in option is available$")
 	public void user_is_logged_out_and_sign_in_option_is_available() {
-
+		
+		TestContext.wait.waitForJStoLoad();
 		Assert.assertTrue(testContext.isElementVisible(mainPage.btnSignIn));
 	}
 
 	@Then("^User is logged in and sign out option is available$")
 	public void user_is_logged_in_and_sign_out_option_is_available() {
 
+		TestContext.wait.waitForJStoLoad();
 		Assert.assertTrue(testContext.isElementVisible(mainPage.btnSignOut));
 	}
 
@@ -33,7 +35,7 @@ public class MainPageSteps {
 	public void user_logs_out_from_the_application() {
 
 		mainPage.signOut();
-
+		TestContext.wait.waitForJStoLoad();
 	}
 
 }

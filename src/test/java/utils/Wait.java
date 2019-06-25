@@ -1,23 +1,22 @@
-package selenium;
+package utils;
 
-import managers.FileReaderManager;
+import managers.WebDriverManager;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import cucumber.TestContext;
+import dataProviders.ConfigFileReader;
 
 public class Wait {
 
-	TestContext testContext = new TestContext();
+	private WebDriver driver = new WebDriverManager().getDriver();
+	private long timeout = new ConfigFileReader().getExplicitWait();
 
-	public boolean waitForJStoLoad() {
+	public void waitForJStoLoad() {
 
-		WebDriverWait wait = new WebDriverWait(testContext
-				.getWebDriverManager().getDriver(), FileReaderManager
-				.getInstance().getConfigFileReader().getExplicitWait());
+		WebDriverWait wait = new WebDriverWait(driver, timeout);
 
 		// wait for jQuery to load
 		ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
@@ -42,7 +41,8 @@ public class Wait {
 			}
 		};
 
-		return wait.until(jQueryLoad) && wait.until(jsLoad);
+		wait.until(jQueryLoad);
+		wait.until(jsLoad);
 	}
 
 }
